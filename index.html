@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guillermo Urbina</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+  <link rel="stylesheet" type='text/css' href="css/style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  $('.card').hover(
+    function() {
+      $(this).css('box-shadow', '0 4px 8px rgba(0,0,0,0.2)');
+    },
+    function() {
+      $(this).css('box-shadow', '0 1px 1px rgba(0,0,0,0.05)');
+    }
+  );
+
+  $('a[href*="#"]:not([href="#"])').click(function(e) {
+    const target = $(this.hash);
+    if (target.length) {
+      $('html, body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  });
+
+  function typing(index, text) {
+    let textIndex = 1;
+    const intervalId = setInterval(function() {
+      if (textIndex < text[index].length + 1) {
+        $('.typewriter-text').text(text[index].substr(0, textIndex));
+        textIndex++;
+      } else {
+        setTimeout(() => deleting(index, text), 2000);
+        clearInterval(intervalId);
+      }
+    }, 150);
+  }
+
+  function deleting(index, text) {
+    let textIndex = text[index].length;
+    const intervalId = setInterval(function() {
+      if (textIndex > 0) {
+        $('.typewriter-text').text(text[index].substr(0, textIndex));
+        textIndex--;
+      } else {
+        index = (index + 1) % text.length;
+        typing(index, text);
+        clearInterval(intervalId);
+      }
+    }, 150);
+  }
+
+  typing(0, $('.typewriter-text').data('text'));
+
+  $("#contact").validate({
+  rules: {
+    website: {
+      required: true,
+      url: true
+    }
+  },
+  submitHandler: function(form) {
+    form.submit();
+  }
+ });
+});
+
+  </script>
+</head>
+<body>
+  <header class="header">
+      <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light">
+              <a class="navbar-brand" href="#"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                          <i class="devicon-c-plain"></i>
+                      </li> 
+                      <li class="nav-item">
+                          <a class="nav-link btn-skills active" href="#sec-skills">SKILLS</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#sec-acerca-de">Acerca de</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#sec-contac">Contacto</a>
+                      </li>
+                  </ul>
+              </div>
+          </nav>
+      </div>
+  </header>
+
+  <section class="hero">
+      <div id="info" class="container text-center">
+          <img src="img/face.png" alt="Developer image" class="img-fluid">
+          <h1 class="hero-title">Guillermo Urbina Ayerdis</h1>
+          <p class="hero-subtitle">Desarrollador Web</p>
+          <a href="#" class="btn btn-primary">Descargar CV</a>
+      </div>
+  </section>
+
+  <section id="sec-skills" class="skills sec-skills">
+      <div class="container">
+          <div class="skills-text text-center">
+              <h2 class="section-title">SKILL</h2>
+              <img src="img/strella.png" class="card-img-top">
+          </div>
+          <div class="row">
+              <div class="col-md-3 mb-4">
+                  <div class="card small-card">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" class="card-img-top" alt="HTML5">
+                      <div class="card-body">
+                          <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-3 mb-4">
+                  <div class="card small-card">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg" class="card-img-top" alt="CSS3">
+                      <div class="card-body">
+                          <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-3 mb-4">
+                  <div class="card small-card">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" class="card-img-top" alt="Bootstrap">
+                      <div class="card-body">
+                          <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-3 mb-4">
+                  <div class="card small-card">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" class="card-img-top" alt="JavaScript">
+                      <div class="card-body">
+                          <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-3 mb-4">
+                  <div class="card small-card">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rails/rails-original-wordmark.svg" class="card-img-top" alt="Rails">
+                      <div class="card-body">
+                          <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-3 mb-4">
+                  <div class="card small-card">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ruby/ruby-plain-wordmark.svg" class="card-img-top" alt="Ruby">
+                      <div class="card-body">
+                          <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-3 mb-4">
+                  <div class="card small-card">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original-wordmark.svg" class="card-img-top" alt="PostgreSQL">
+                      <div class="card-body">
+                          <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-3 mb-4">
+                  <div class="card small-card">
+                      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" class="card-img-top" alt="Git">
+                      <div class="card-body">
+                          <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section id="sec-acerca-de" class="about sec-acerca-de">
+      <div id="acerca_de" class="container">
+          <div class="skills-text text-center">
+              <h2 class="section-title">Acerca de</h2>
+              <img src="img/strella.png" class="card-img-top white-image">
+          </div>
+          <p class="typewriter text-center">Un simple desarrollador web al que le encanta <span class="typewriter-text" data-text='[ "ser Nica. ", "programar. ", "y jugar a videojuegos. " ]'></span></p>
+      </div>
+  </section>
+
+  <section id="sec-contac" class="sec-contac pt-5 pb-5">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-7">
+                  <div class="skills-text text-center">
+                      <h2 class="section-title">Contacto</h2>
+                      <img src="img/strella.png" class="card-img-top">
+                  </div>
+                  <form id="contact" action="" method="post">
+                    <fieldset class="form-group form-magin">
+                      <input id="formName" class="form-control" type="text" placeholder="Nombre y Apellidos" required>
+                    </fieldset>
+                      
+                    <fieldset class="form-group form-magin">
+                      <input id="formEmail1" class="form-control" type="email" placeholder="Email" required>
+                    </fieldset>
+                  
+                    <fieldset class="form-group form-magin">
+                      <textarea id="formMessage" class="form-control" rows="3" placeholder="Mensage" required></textarea>
+                    </fieldset>
+                    
+                    <fieldset class="form-group text-right">
+                      <button class="btn btn-custom" type="submit">Enviar</button>
+                    </fieldset>
+                  </form>
+                  
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <footer class="footer">
+      <div class="container text-center">
+          <h6>Copyright&copy; Tu sitio web 2024</h6>
+      </div>
+  </footer>
+</body>
+</html>
