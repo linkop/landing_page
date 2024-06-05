@@ -129,4 +129,11 @@
   @media (min-width: 768px) {
     .typewriter { font-size: 60px; }
   }
+
+  @media (max-width: 991px) {
+    .btn-skills {
+      text-align: left;
+      padding-left: 15px !important;
+  }
+  }
   
